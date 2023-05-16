@@ -41,7 +41,7 @@ const AllCampusesView = (props) => {
         </div>
       ))}
       <br/>
-      <Link to={`/`}>
+      <Link to={`newcampus`}>
         <button>Add New Campus</button>
       </Link>
       <br/><br/>
@@ -52,6 +52,7 @@ const AllCampusesView = (props) => {
 // Validate data type of the props passed to component.
 AllCampusesView.propTypes = {
   allCampuses: PropTypes.array.isRequired,
+  deleteCampus: PropTypes.func.isRequired,
 };
 
 export default AllCampusesView;
