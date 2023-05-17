@@ -21,6 +21,9 @@ const StudentView = (props) => {
   return (
     <div>
       <h1>{student.firstname + " " + student.lastname}</h1>
+      <div>
+        <img src={student.imageURL} alt="Campus" style={{ width: '200px', height: '150px', marginBottom: '10px' }} />
+      </div>
       <Link to={`/campus/${student.campus.id}`}>
         <h3>{student.campus.name}</h3>
       </Link>

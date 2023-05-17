@@ -28,6 +28,9 @@ class EditStudentContainer extends Component {
       firstname: student.firstname,
       lastname: student.lastname,
       campusId: student.campusId,
+      gpa: student.gpa,
+      email: student.email,
+      imageURL: student.imageURL,
       redirect: false, 
       redirectId: null
     };
@@ -48,7 +51,9 @@ class EditStudentContainer extends Component {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
         campusId: this.state.campusId,
-        // imageURL: this.state.imageURL,
+        imageURL: this.state.imageURL,
+        gpa: this.state.gpa,
+        email: this.state.email,
         id: this.props.student.id
     };
     
@@ -59,8 +64,10 @@ class EditStudentContainer extends Component {
     this.setState({
       firstname: "", 
       lastname: "",
-      campusId: "", 
-    //   imageURL: "", 
+      campusId: "",
+      gpa: "",
+      email: "", 
+      imageURL: null, 
       redirect: true, 
       redirectId: this.props.student.id
     });

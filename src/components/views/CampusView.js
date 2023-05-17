@@ -11,6 +11,7 @@ const CampusView = (props) => {
   const {campus} = props;
   const {deleteCampus} = props;
   let history = useHistory();
+  console.log(campus)
 
 
   function deleteAndRedirect() {
@@ -24,6 +25,9 @@ const CampusView = (props) => {
       <h1>{campus.name}</h1>
       <p>{campus.address}</p>
       <p>{campus.description}</p>
+      <div>
+        <img src={campus.imageURL} alt="Campus" style={{ width: '200px', height: '150px', marginBottom: '10px' }} />
+      </div>
       <button onClick={deleteAndRedirect}>Delete</button>
       <Link to={`/editcampus/${campus.id}`}>
         <button>Edit</button>
