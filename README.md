@@ -4,7 +4,7 @@
 ### GitHub: Sowjan95
 ----------
 
-This repository is the client (front-end) starter code for Final Project - Full-Stack CRUD Application.
+This repository is the client (front-end) code for Final Project - Full-Stack CRUD Application.
 
 ----------
 ### 1. Use the following process to ***import*** the Final Project client starter code repository to your GitHub account as the starter codebase
