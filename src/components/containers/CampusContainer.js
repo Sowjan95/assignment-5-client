@@ -9,9 +9,7 @@ import Header from './Header';
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchCampusThunk, deleteCampusThunk, editCampusThunk } from "../../store/thunks";
-
 import { CampusView } from "../views";
-// import { editCampus } from '../../store/actions/actionCreators';
 
 class CampusContainer extends Component {
   // Get the specific campus data from back-end database
