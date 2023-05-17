@@ -10,12 +10,19 @@ import { Link, useHistory } from "react-router-dom";
 const CampusView = (props) => {
   const {campus} = props;
   const {deleteCampus} = props;
+  const {deleteStudent} = props;
   let history = useHistory();
+  console.log(campus)
 
 
   function deleteAndRedirect() {
     deleteCampus(campus.id);
     history.push("/campuses");
+  }
+
+  function deleteStudentAndRefresh(student) {
+    deleteStudent(student.id);
+    window.location.reload();
   }
   
   // Render a single Campus view with list of its students
@@ -24,9 +31,12 @@ const CampusView = (props) => {
       <h1>{campus.name}</h1>
       <p>{campus.address}</p>
       <p>{campus.description}</p>
-      <button onClick={deleteAndRedirect}>Delete</button>
+      <div>
+        <img src={campus.imageURL} alt="Campus" style={{ width: '200px', height: '150px', marginBottom: '10px' }} />
+      </div>
+      <button onClick={deleteAndRedirect}>Delete Campus</button>
       <Link to={`/editcampus/${campus.id}`}>
-        <button>Edit</button>
+        <button>Edit Campus</button>
       </Link>
       {campus.students.length === 0 && <p>There are no students enrolled in this campus.</p>}
       {campus.students.map( student => {
@@ -35,10 +45,16 @@ const CampusView = (props) => {
           <div key={student.id}>
             <Link to={`/student/${student.id}`}>
               <h2>{name}</h2>
-            </Link>             
+            </Link>
+            <button onClick={() => deleteStudentAndRefresh(student)}>Delete Student</button>     
+            <hr/>       
           </div>
         );
       })}
+      <br/>
+      <Link to={`/newstudent?campusId=${campus.id}`}>
+        <button>Add New Student</button>
+      </Link>
     </div>
   );
 };
