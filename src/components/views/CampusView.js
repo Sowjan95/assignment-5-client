@@ -34,9 +34,9 @@ const CampusView = (props) => {
       <div>
         <img src={campus.imageURL} alt="Campus" style={{ width: '200px', height: '150px', marginBottom: '10px' }} />
       </div>
-      <button onClick={deleteAndRedirect}>Delete</button>
+      <button onClick={deleteAndRedirect}>Delete Campus</button>
       <Link to={`/editcampus/${campus.id}`}>
-        <button>Edit</button>
+        <button>Edit Campus</button>
       </Link>
       {campus.students.length === 0 && <p>There are no students enrolled in this campus.</p>}
       {campus.students.map( student => {
@@ -46,13 +46,12 @@ const CampusView = (props) => {
             <Link to={`/student/${student.id}`}>
               <h2>{name}</h2>
             </Link>
-            <button onClick={() => deleteStudentAndRefresh(student)}>Delete Student</button>            
+            <button onClick={() => deleteStudentAndRefresh(student)}>Delete Student</button>     
+            <hr/>       
           </div>
         );
       })}
-      {/* <Link to={`/newstudent`}>
-        <button>Add New Student</button>
-      </Link> */}
+      <br/>
       <Link to={`/newstudent?campusId=${campus.id}`}>
         <button>Add New Student</button>
       </Link>
