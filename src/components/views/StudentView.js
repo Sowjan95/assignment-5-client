@@ -26,9 +26,10 @@ const StudentView = (props) => {
       </div>
       <p>GPA: {student.gpa}</p>
       <p>Email: {student.email}</p>
-      <Link to={`/campus/${student.campus.id}`}>
+      {!student.campus && <p>This student is not enrolled in a campus.</p>}
+      {student.campus && <Link to={`/campus/${student.campus.id}`}>
         <h3>{student.campus.name}</h3>
-      </Link>
+      </Link>}
       <button onClick={deleteAndRedirect}>Delete</button>
       <Link to={`/editstudent/${student.id}`}>
         <button>Edit</button>
