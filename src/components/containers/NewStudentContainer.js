@@ -30,9 +30,12 @@ class NewStudentContainer extends Component {
     };
   }
 
+  // get default values for imageURL and campusId
+  // campusId has default value if it can be retrieved from URL
   componentDidMount() {
     const campusId = this.getCampusIdFromURL();
-    this.setState({ campusId });
+    const imageURL = "https://www.pngkey.com/png/detail/77-771372_high-school-cap-and-gown-graduation-clipart.png";
+    this.setState({ campusId, imageURL });
   }
 
   // Retrieve campusId from the URL

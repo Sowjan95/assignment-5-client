@@ -59,6 +59,11 @@ class NewCampusContainer extends Component {
     });
   }
 
+  componentDidMount() {
+    const imageURL = "https://img.freepik.com/free-vector/young-people-walking-front-college-university-flat-illustration_74855-14224.jpg?w=2000";
+    this.setState({ imageURL });
+  }
+
   // Unmount when the component is being removed from the DOM:
   componentWillUnmount() {
       this.setState({redirect: false, redirectId: null});
