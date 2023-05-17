@@ -1,4 +1,8 @@
-# client-starter-code
+# Assignment 5 - Final Project Client Side
+
+### Name: Sowjanya Sritharasarma
+### GitHub: Sowjan95
+----------
 
 This repository is the client (front-end) starter code for Final Project - Full-Stack CRUD Application.
 
