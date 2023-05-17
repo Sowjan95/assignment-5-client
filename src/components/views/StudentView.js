@@ -24,8 +24,8 @@ const StudentView = (props) => {
       <div>
         <img src={student.imageURL} alt="Student" style={{ width: '200px', height: '150px', marginBottom: '10px' }} />
       </div>
-      {student.gpa !== null && <p>GPA: {student.gpa}</p>}
-      {student.email !== "" && <p>Email: {student.email}</p>}
+      <p>GPA: {student.gpa}</p>
+      <p>Email: {student.email}</p>
       <Link to={`/campus/${student.campus.id}`}>
         <h3>{student.campus.name}</h3>
       </Link>
