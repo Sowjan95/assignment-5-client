@@ -21,7 +21,9 @@ const StudentView = (props) => {
   return (
     <div>
       <h1>{student.firstname + " " + student.lastname}</h1>
-      <h3>{student.campus.name}</h3>
+      <Link to={`/campus/${student.campus.id}`}>
+        <h3>{student.campus.name}</h3>
+      </Link>
       <button onClick={deleteAndRedirect}>Delete</button>
       <Link to={`/editstudent/${student.id}`}>
         <button>Edit</button>
