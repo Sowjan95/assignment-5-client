@@ -10,6 +10,7 @@ import { Link, useHistory } from "react-router-dom";
 const CampusView = (props) => {
   const {campus} = props;
   const {deleteCampus} = props;
+  const {deleteStudent} = props;
   let history = useHistory();
   console.log(campus)
 
@@ -17,6 +18,11 @@ const CampusView = (props) => {
   function deleteAndRedirect() {
     deleteCampus(campus.id);
     history.push("/campuses");
+  }
+
+  function deleteStudentAndRefresh(student) {
+    deleteStudent(student.id);
+    window.location.reload();
   }
   
   // Render a single Campus view with list of its students
@@ -39,7 +45,8 @@ const CampusView = (props) => {
           <div key={student.id}>
             <Link to={`/student/${student.id}`}>
               <h2>{name}</h2>
-            </Link>             
+            </Link>
+            <button onClick={() => deleteStudentAndRefresh(student)}>Delete</button>            
           </div>
         );
       })}
