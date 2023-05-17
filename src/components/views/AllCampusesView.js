@@ -14,7 +14,6 @@ const AllCampusesView = (props) => {
     return (
       <div>
       <p>There are no campuses.</p>
-      {/* Add button to add new campus */}
       <Link to={`newcampus`}>
         <button>Add New Campus</button>
       </Link>
@@ -37,8 +36,6 @@ const AllCampusesView = (props) => {
           <div>
             <img src={campus.imageURL} alt="Campus" style={{ width: '200px', height: '150px', marginBottom: '10px' }} />
           </div>
-          {/* <p>{campus.address}</p>
-          <p>{campus.description}</p> */}
           <button onClick={() => deleteCampus(campus.id)}>Delete</button>
           <hr/>
         </div>
