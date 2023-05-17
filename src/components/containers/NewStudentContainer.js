@@ -22,7 +22,6 @@ class NewStudentContainer extends Component {
       firstname: "", 
       lastname: "", 
       email: "",
-      // campusId: this.props.campusId || null, // Access the campusId prop
       campusId: null,
       imageURL: null,
       gpa: null,
@@ -31,30 +30,31 @@ class NewStudentContainer extends Component {
     };
   }
 
-  // // Capture input data when it is entered
-  // handleChange = event => {
-  //   this.setState({
-  //     [event.target.name]: event.target.value
-  //   });
-  // }
+  componentDidMount() {
+    const campusId = this.getCampusIdFromURL();
+    this.setState({ campusId });
+  }
+
+  // Retrieve campusId from the URL
+  getCampusIdFromURL = () => {
+    const { location } = this.props;
+    const searchParams = new URLSearchParams(location.search);
+    return searchParams.get('campusId');
+  };
+
+
 
   // Capture input data when it is entered
-  handleChange = (event, defaultCampusId = null) => {
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     });
-      
-      if (defaultCampusId) {
-        this.setState({
-          campusId: defaultCampusId
-        });
-      }
   }
 
   // Take action after user click the submit button
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
-
+    
     let student = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
@@ -63,6 +63,7 @@ class NewStudentContainer extends Component {
         gpa: this.state.gpa,
         campusId: this.state.campusId
     };
+    console.log(student)
     
     // Add new student in back-end database
     let newStudent = await this.props.addStudent(student);
@@ -98,6 +99,7 @@ class NewStudentContainer extends Component {
       <div>
         <Header />
         <NewStudentView 
+          campusId = {this.state.campusId}
           handleChange = {this.handleChange} 
           handleSubmit={this.handleSubmit}      
         />
