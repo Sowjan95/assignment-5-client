@@ -14,6 +14,7 @@ import NewStudentView from '../views/NewStudentView';
 import { addStudentThunk } from '../../store/thunks';
 
 class NewStudentContainer extends Component {
+
   // Initialize state
   constructor(props){
     super(props);
@@ -21,6 +22,7 @@ class NewStudentContainer extends Component {
       firstname: "", 
       lastname: "", 
       email: "",
+      // campusId: this.props.campusId || null, // Access the campusId prop
       campusId: null,
       imageURL: null,
       gpa: null,
@@ -29,11 +31,24 @@ class NewStudentContainer extends Component {
     };
   }
 
+  // // Capture input data when it is entered
+  // handleChange = event => {
+  //   this.setState({
+  //     [event.target.name]: event.target.value
+  //   });
+  // }
+
   // Capture input data when it is entered
-  handleChange = event => {
+  handleChange = (event, defaultCampusId = null) => {
     this.setState({
       [event.target.name]: event.target.value
     });
+      
+      if (defaultCampusId) {
+        this.setState({
+          campusId: defaultCampusId
+        });
+      }
   }
 
   // Take action after user click the submit button
