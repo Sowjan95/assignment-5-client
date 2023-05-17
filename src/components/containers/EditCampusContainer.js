@@ -1,5 +1,5 @@
 /*==================================================
-NewCampusContainer.js
+EditCampusContainer.js
 
 The Container component is responsible for stateful logic and data fetching, and
 passes data (if any) as props to the corresponding View component.
@@ -72,9 +72,9 @@ class EditCampusContainer extends Component {
       this.setState({redirect: false, redirectId: null});
   }
 
-  // Render new campus input form
+  // Render edit campus input form
   render() {
-    // Redirect to new campus's page after submit
+    // Redirect to edit campus's page after submit
     if(this.state.redirect) {
       return (<Redirect to={`/campus/${this.state.redirectId}`}/>)
     }
@@ -113,6 +113,6 @@ const mapDispatch = (dispatch) => {
 }
 
 // Export store-connected container by default
-// NewCampusContainer uses "connect" function to connect to Redux Store and to read values from the Store 
+// EditCampusContainer uses "connect" function to connect to Redux Store and to read values from the Store 
 // (and re-read the values when the Store State updates).
 export default connect(mapState, mapDispatch)(EditCampusContainer);
